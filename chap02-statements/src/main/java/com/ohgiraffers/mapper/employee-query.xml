@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?> <!-- 일반적으로 utf8 -->
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <!--내용은 여기 사이에 작성해 줘야 프로퍼티스 안에 들어있을 수 있다.-->
+    <entry key="selectEmpByFirstName">
+        SELECT
+            E.EMP_ID,
+            E.EMP_NAME,
+            J.JOB_NAME
+          FROM EMPLOYEE E
+          JOIN JOB J ON E.JOB_CODE = J.JOB_CODE <!--여기서 = 은 여기도 있고 저기도 있다는 뜻, 같다는 의미가 아니다.-->
+        WHERE E.EMP_NAME LIKE CONCAT(?,'%');
+    </entry>
+    
+    <entry key="topSalary">
+        SELECT
+            *
+          FROM EMPLOYEE E JOIN JOB J
+            ON E.JOB_CODE = J.JOB_CODE
+        ORDER BY E.SALARY DESC
+        LIMIT 1;
+    </entry>
+
+    <entry key="selectByName">
+        SELECT
+            *
+          FROM EMPLOYEE E JOIN JOB J
+            ON E.JOB_CODE = J.JOB_CODE
+        WHERE E.EMP_NAME = ?;
+    </entry>
+    
+</properties>
