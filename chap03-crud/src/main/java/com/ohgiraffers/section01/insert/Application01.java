@@ -15,7 +15,7 @@ public class Application01 {
         Connection con = getConnection();
         PreparedStatement pstmt = null;
 
-        // 결과를 담아줄 변수, 성공 여부 1 또는 0
+        // 결과를 담아줄 변수, 성공 여부 1 또는 0, 0이 뜨면 mysql 에서 문제가 생겼음을 유추할 수 있다.
         int result = 0;
 
         Properties prop = new Properties();
